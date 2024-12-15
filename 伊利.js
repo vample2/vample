@@ -303,12 +303,13 @@ var r_EncryptText ={
 // s = (0,
 //     r_EncryptText.getLoginEncryptText)(c_c, type, type2);
 // console.log(s)
-function generateSignature(timestamp) {
+//type1,type2请求获得，openid
+function generateSignature(timestamp,type1,type2) {
     var t_n = timestamp, 
     o_d = timestamp + "&" + String(Math.floor(1e5 + 9e5 * Math.random()))
     , c_c = "timeStamp:".concat(t_n, "&uniqueCode:").concat(o_d)
-    , type = 4
-    , type2 = 10
+    , type = type1
+    , type2 = type2
     console.log(c_c)
     s = (0,
         r_EncryptText.getLoginEncryptText)(c_c, type, type2);
