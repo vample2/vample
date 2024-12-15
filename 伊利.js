@@ -1,91 +1,5 @@
 const CryptoJS = require('crypto-js');
-// Crypto ={
-//     "AES":{
-//         encrypt: function(e, r, i) {
-            
-//             return d_encrypt.encrypt(t, e, r, i)
-//         },
-//         decrypt: function(e, r, i) {
-//             return d_encrypt.decrypt(t, e, r, i)
-//         }
-//     },
-//     "enc":{
-//         Latin1 : {
-//             stringify: function(t) {
-//                 var e = t.words;
-//                 t = t.sigBytes;
-//                 for (var r = [], i = 0; i < t; i++)
-//                     r.push(String.fromCharCode(e[i >>> 2] >>> 24 - i % 4 * 8 & 255));
-//                 return r.join("")
-//             },
-//             parse: function(t) {
-//                 for (var e = t.length, r = [], i = 0; i < e; i++)
-//                     r[i >>> 2] |= (255 & t.charCodeAt(i)) << 24 - i % 4 * 8;
-//                 return new o_WordArray.init(r,e)
-//             }
-//         }
-//     },
-//     "mode":{
-//         "CBC":{}
-        
-//     },
-//     "pad":{
-//         "Pkcs7":{}
-//     }
-// }
 
-var d_encrypt={
-
-    encrypt: function(t, e, r, i) {
-
-    },
-    decrypt: function(t, e, r, i) {
-    },
-    _parse: function(t, e) {
-    }
-}
-o_WordArray={
-    init: function(t, e) {
-        t = this.words = t || [],
-        this.sigBytes = null != e ? e : 4 * t.length
-    },
-    toString: function(t) {
-        return (t || a).stringify(this)
-    },
-    concat: function(t) {
-        var e = this.words
-          , r = t.words
-          , i = this.sigBytes;
-        if (t = t.sigBytes,
-        this.clamp(),
-        i % 4)
-            for (var n = 0; n < t; n++)
-                e[i + n >>> 2] |= (r[n >>> 2] >>> 24 - n % 4 * 8 & 255) << 24 - (i + n) % 4 * 8;
-        else if (65535 < r.length)
-            for (n = 0; n < t; n += 4)
-                e[i + n >>> 2] = r[n >>> 2];
-        else
-            e.push.apply(e, r);
-        return this.sigBytes += t,
-        this
-    },
-    clamp: function() {
-        var e = this.words
-          , r = this.sigBytes;
-        e[r >>> 2] &= 4294967295 << 32 - r % 4 * 8,
-        e.length = t.ceil(r / 4)
-    },
-    clone: function() {
-        var t = s.clone.call(this);
-        return t.words = this.words.slice(0),
-        t
-    },
-    random: function(e) {
-        for (var r = [], i = 0; i < e; i += 4)
-            r.push(4294967296 * t.random() | 0);
-        return new o.init(r,e)
-    }
-}
 function r(n, e) {
     var r = (65535 & n) + (65535 & e);
     return (n >> 16) + (e >> 16) + (r >> 16) << 16 | 65535 & r
@@ -112,8 +26,6 @@ function a(n) {
         e[t] = 0;
     for (var r = 8 * n.length, t = 0; t < r; t += 8)
         e[t >> 5] |= (255 & n.charCodeAt(t / 8)) << t % 32;
-    // console.log(e)
-    // console.log(e.length)
     return e
 }
 function l(n) {
@@ -303,7 +215,6 @@ var r_EncryptText ={
 // s = (0,
 //     r_EncryptText.getLoginEncryptText)(c_c, type, type2);
 // console.log(s)
-//type1,type2请求获得，openid
 function generateSignature(timestamp,type1,type2) {
     var t_n = timestamp, 
     o_d = timestamp + "&" + String(Math.floor(1e5 + 9e5 * Math.random()))
