@@ -1,7 +1,7 @@
 window=global;
 document={};
 const deasync = require('deasync');
-const Module =require("./12312.js")
+const Module =require("./jcap_2020_04_27.min.js")
 // 等待 Module['getEncryptData'] 加载
 function waitForEncryptDataSync() {
     const start = Date.now();
