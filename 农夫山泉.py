@@ -2,7 +2,7 @@ import time
 import os
 import requests
 from datetime import datetime
-
+import json
 ##获取账号名称
 def login(apitoken):
   url = 'https://gateway.jmhd8.com/geement.usercenter/api/v1/user/information'
@@ -12,7 +12,7 @@ def login(apitoken):
     'content-type': "application/x-www-form-urlencoded",
     'apitoken': apitoken,
     'xweb_xhr': "1",
-    'unique_identity': "223a474b-5eb7-43c6-8eb9-38c6a03bb75b",
+    'unique_identity': "b78effb9-789e-416c-8e2b-84f7d9dadbb6",
     'sec-fetch-site': "cross-site",
     'sec-fetch-mode': "cors",
     'sec-fetch-dest': "empty",
@@ -106,7 +106,7 @@ def lottery(apitoken):
 
   url = "https://thirtypro.jmhd8.com/api/v1/nongfuwater/snake/checkerboard/lottery"
 
-  payload = {
+  payload = json.dumps({
     "code": "SCENE-24121018362724",
     "provice_name": "上海市", 
     "city_name": "上海市",
@@ -114,7 +114,7 @@ def lottery(apitoken):
     "address": "上海市浦东新区东方路121号", 
     "longitude": 121.520630, 
     "dimension": 31.239136
-  }
+  })
 
   headers = {
     'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090c11)XWEB/11581",
@@ -129,9 +129,10 @@ def lottery(apitoken):
     'accept-language': "zh-CN,zh;q=0.9"
   }
 
-  response = requests.post(url, data=payload, headers=headers)
+  response = requests.post(url, data=payload, headers=headers).json()
 
-  print(response.text)
+  # print(response.text)
+  return response
 
 
 
@@ -153,11 +154,11 @@ def marketinglottery(apitoken,code):
     'accept-language': "zh-CN,zh;q=0.9"
   }
 
-  data = {"code": f"{code}", "provice_name": "上海市", "city_name": "上海市",
-          "area_name": "浦东新区", "address": "上海市浦东新区东方路121号", "longitude": 121.520630, "dimension": 31.239136}
+  payload = json.dumps({"code": f"{code}", "provice_name": "上海市", "city_name": "上海市",
+          "area_name": "浦东新区", "address": "上海市浦东新区东方路121号", "longitude": 121.520630, "dimension": 31.239136})
   
   # print(data)
-  response = requests.post(url, headers=headers, json=data).json()
+  response = requests.post(url, headers=headers, data=payload).json()
   if response['code'] == 500:
     print(response['msg'])
   else:
@@ -173,8 +174,8 @@ def getSeniority():
       'Content-Type': 'application/x-www-form-urlencoded',
       'apitoken': apitoken,
       'xweb_xhr': '1',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF XWEB/8447',
-      'unique_identity': '26bce5ae-e346-40f6-92ad-946294bf9bc6',
+      'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090c11)XWEB/11581",
+      'unique_identity': "b78effb9-789e-416c-8e2b-84f7d9dadbb6",
       'Accept': '*/*',
       'Sec-Fetch-Site': 'cross-site',
       'Sec-Fetch-Mode': 'cors',
@@ -204,11 +205,11 @@ def seniority(apitoken):
   }
 
   headers = {
-    'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090819)XWEB/8461",
+    'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090c11)XWEB/11581",
     'content-type': "application/x-www-form-urlencoded",
     'apitoken': apitoken,
     'xweb_xhr': "1",
-    'unique_identity': "4d7e5ccb-4c9f-45b0-9ba7-d8701e766abf",
+    'unique_identity': "b78effb9-789e-416c-8e2b-84f7d9dadbb6",
     'sec-fetch-site': "cross-site",
     'sec-fetch-mode': "cors",
     'sec-fetch-dest': "empty",
@@ -251,7 +252,30 @@ def todaycount(apitoken):
   # print(response.text)
   return response.json()["data"]
 
+def goods_simple(apitoken):
+  url = "https://gateway.jmhd8.com/geement.actjextra/api/v1/act/win/goods/simple"
 
+  params = {
+    'act_codes': "ACT2412101428048,ACT24121014352835,ACT24121014371732"
+  }
+
+  headers = {
+    'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090c11)XWEB/11581",
+    'content-type': "application/x-www-form-urlencoded",
+    'apitoken': apitoken,
+    'xweb_xhr': "1",
+    'unique_identity': "b78effb9-789e-416c-8e2b-84f7d9dadbb6",
+    'sec-fetch-site': "cross-site",
+    'sec-fetch-mode': "cors",
+    'sec-fetch-dest': "empty",
+    'referer': "https://servicewechat.com/wxd79ec05386a78727/86/page-frame.html",
+    'accept-language': "zh-CN,zh;q=0.9"
+  }
+
+  response = requests.get(url, params=params, headers=headers).json()
+  return response["data"]
+
+  # print(response.text)
 
 
 if __name__ == '__main__':
@@ -283,11 +307,40 @@ if __name__ == '__main__':
       for _ in range(3-everydata_counted):
         marketinglottery(apitoken,code)
         time.sleep(1)
+    everydata_counted=todaycount(apitoken)
     print("每日赠送抽奖",f"[{everydata_counted}/3]")
-    # marketinglottery(api)
+    taskList = getTaskList(apitoken)
+    print("======执行任务======")
+    for task in taskList:
+      task_name=task["name"]
+      task_status=task["complete_status"]
+      taskId = task['id']
+      allow_complete_count=task["allow_complete_count"]
+      complete_count=task["complete_count"]
+      if task_status == 1:
+        print(task_name,"  已完成,跳过")
+      elif task_status == 0:
+        print("开始  ",task_name,f"[{complete_count}/{allow_complete_count}]")
+        for _ in range(allow_complete_count-complete_count):
+          doTask(taskId,apitoken)
+          time.sleep(1)
+
+    print("时来运转游戏")
+    for _ in range(3):
+      lottery_mes=lottery(apitoken)
+      if lottery_mes["success"]==False:
+        print(lottery_mes['msg'])
+        break
+      else:
+        print(lottery_mes['data'])
+      time.sleep(1)
+
+      
+    
+
     taskList = getTaskList(apitoken)
     # print(taskList)
-    print("======任务列表======")
+    print("======任务完成情况======")
     for task in taskList:
       task_name=task["name"]
       task_status=task["complete_status"]
@@ -295,20 +348,13 @@ if __name__ == '__main__':
       ##游戏次数
       allow_complete_count=task["allow_complete_count"]
       complete_count=task["complete_count"]
-      if complete_count < allow_complete_count:
-        print("时来运转游戏")
-        for _ in range(allow_complete_count - complete_count):
-          lottery(apitoken)
-          time.sleep(1)
-      else:
-        print("时来运转游戏 [√]")
       if task_status == 1:
-        print(task_name,"[√]")
+        print("[√]",task_name,f"[{complete_count}/{allow_complete_count}]")
       elif task_status == 0:
-        doTask(taskId,apitoken)
-        print(task_name,"[×]")
-        time.sleep(1)
+        print("[×]",task_name,f"[{complete_count}/{allow_complete_count}]")
+    print("======查询奖品======")
+    goods_list=goods_simple(apitoken)
+    for good in goods_list:
+      if good["win_goods_sub_type"] != None:
+        print(good["win_goods_name"])
 
-
-
-      
