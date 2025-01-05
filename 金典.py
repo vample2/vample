@@ -326,7 +326,7 @@ def get_loginurl(code):
     login_url = response.json()['data']['redirectUrl']
     return login_url
 if __name__ == '__main__':
-    # login_url="https://96126.activity-19.m.duiba.com.cn/autoLogin/autologin?dcustom=unionId%253Do6QWL1OEF71Vca4gSMzIkRo36Qy0%2526openId%253DoWT3_49LZ3yMNfOouEs-p43ihpJk%2526registerTimestamp%253D1672632705000%2526ip%253D111.38.164.29%2526mobile%253D18156199271%2526accessTokenExpireTime%253D1735392974928%2526avatar%253Dhttps%253A%252F%252Fyshop-cos.yili.com%252Fassets%252Fauth%252Fyshop%252F11.png%2526accessToken%253D8id7NZKISVBf3JpGH%25252BKkDlFPtCyZdC%25252BEpFOJhYZglmwgNW8Gh8gnNUYzPbaJjZ92Mc%25252Bpjvx9SNLXpNsGs7NIHA%25253D%25253D%2526userId%253D1552928644285122338%2526registerSource%253D1563%2526refreshTokenExpireTime%253D1735394774928%2526openWxStep%253Dfalse%2526nickname%253D%25E5%25BF%25A7%25E9%2583%2581%25E7%259A%2584%25E6%259C%258D%25E9%25A5%25B0%2526tenantId%253D1718857849685876737%2526refreshToken%253DXYdBLL%25252FDvGyVtBAtx7%25252FwCbC9c2biSu7td4eU42rRCIaQ7UJwTNhJQRTmGVFtGkVwHpxV0IeR4%25252FtGAx773GXlau%25252B93u%25252BqiTeuYF%25252BzR8649UO9nSKDduKT5wx%25252FF0a%25252FlcD8%25252FnWDNl6dib0jCTTpqfoFOzHTctkPK74h5G8j3CmgRbI%25253D&redirect=https%3A%2F%2F96126.activity-19.m.duiba.com.cn%2Fprojectx%2Fp71c499de%2Findex.html%3FappID%3D97276%26app_key%3Dzd49bb086bcfdf8ae4%26appId%3D97276%26channel%3D0&uid=1552928644285122338&credits=35&sourceType=4&sign=dfbb72cc700163c45e59cbc22dd789c1&appKey=CXaq2gmukK99fVGYgnFmmc4t1jG&timestamp=1735389375152&"
+    # login_url="https://96126.activity-19.m.duiba.com.cn/autoLogin/autologin"
     # 
     tokens=[
 
