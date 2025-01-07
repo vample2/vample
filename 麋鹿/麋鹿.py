@@ -128,28 +128,6 @@ def md5_extract_integers(data: str):
     return result
 
 
-def ordercreate(payload):
-    import requests
-
-    url = "https://capi.lkcoffee.com/resource/core/v2/virtual/order/create"
-
-    headers = {
-        'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090819)XWEB/8461",
-        'x-lk-csid': "b65bd4a6-2e38-4b66-c79a-04b80c7706ac",
-        'xweb_xhr': "1",
-        'x-lk-akv': "lk-wxmp-v5.1.72",
-        'x-lk-mid': "1143503797",
-        'sec-fetch-site': "cross-site",
-        'sec-fetch-mode': "cors",
-        'sec-fetch-dest': "empty",
-        'referer': "https://servicewechat.com/wx21c7506e98a2fe75/728/page-frame.html",
-        'accept-language': "zh-CN,zh;q=0.9",
-        'Cookie': "uid="
-    }
-
-    response = requests.post(url, data=payload, headers=headers)
-
-    print(decoder_response(response.text))
 
 
 if __name__ == "__main__":
@@ -195,4 +173,3 @@ if __name__ == "__main__":
     }
 
     print("参数:", params)
-    ordercreate(params)
