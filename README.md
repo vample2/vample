@@ -2,6 +2,7 @@
 仅用于学习！！！
 - jd补环境(更新的话尝试替换)
    - 狗洞获取验证图片(se参数，其中Module['getEncryptData']，直接拿源文件可以运行)
+   - jdfingerprint纯算
 - 麋鹿
 - 塔司厅
 - 毅力
