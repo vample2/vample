@@ -231,7 +231,7 @@ if __name__ == '__main__':
     key = ""
     iv = ""
     version = 
-##小号
+
     for _ in range(range_n):
         payload = generate_payload(uerId, key, iv, version)
         payload_list.append(payload)
