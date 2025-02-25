@@ -4548,6 +4548,9 @@ function U(J, f) {
 ```
 Jf['ua'](JP, !(0x3af * -0x1 + 0x21d1 + -0x1e22))
 这里生成的refer
+JP='312536684|0|1740468201136|1';
+Ju = Jf['ua'](JP, true);
+console.log(Ju)
 
 
 
@@ -6120,3 +6123,8 @@ JP='312536684|0|1740468201136|1';
 Ju = Jf['ua'](JP, true);
 console.log(Ju)
 ```
+下一步
+JP='312536684|0|1740468201136|1';的生成
+JP = J[fC(PX.J3)](J[fC(PX.J4)](J[fC(PX.J5)](J[fC(PX.J6)](J[fC(PX.J7)](JU[fC(PX.J8)](Ju), '|'), J[fC(PX.J9)](J9)), '|'), new Date()[fC(PX.JJ)]()), '|1')
+
+
