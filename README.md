@@ -14,6 +14,9 @@
 - 塔斯汀福卡
 - 古井（简单写下，助力逻辑没写10个号内没问题）
 - 雪王（幸运卡）系列
-- 上海少妇口令(多线程)
+- 上海少妇口令(多线程) key可以使用cheat engine 搜索\"encrypt_key\":获得
+```
+ on xweb callback. operateWXData {"data":{"data":"{\"encrypt_key\":\"\",\"version\":,\"expire_in\":3600,\"iv\":\"\",\"create_time\":1740532888}","err_no":0},"errMsg":"operateWXData:ok","errno":0,"errorCode":0}
+```
 
 
