@@ -22,6 +22,6 @@
 
  on xweb callback. operateWXData {"data":{"data":"{\"encrypt_key\":\"\",\"version\":,\"expire_in\":3600,\"iv\":\"\",\"create_time\":1740532888}","err_no":0},"errMsg":"operateWXData:ok","errno":0,"errorCode":0}
 ```
-- 古茗refer参数
+- 古茗refer参数（生成一致，过不了请求不知道为啥）
 
 
