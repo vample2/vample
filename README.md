@@ -23,7 +23,6 @@
  on xweb callback. operateWXData {"data":{"data":"{\"encrypt_key\":\"\",\"version\":,\"expire_in\":3600,\"iv\":\"\",\"create_time\":1740532888}","err_no":0},"errMsg":"operateWXData:ok","errno":0,"errorCode":0}
 ```
 - 古茗refer参数（
-encoded_params = urllib.parse.urlencode(params)需要对生成的refer进行编码
-  
+encoded_params = urllib.parse.urlencode(params)
 
 
