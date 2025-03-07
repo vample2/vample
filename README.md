@@ -22,22 +22,8 @@
 
  on xweb callback. operateWXData {"data":{"data":"{\"encrypt_key\":\"\",\"version\":,\"expire_in\":3600,\"iv\":\"\",\"create_time\":1740532888}","err_no":0},"errMsg":"operateWXData:ok","errno":0,"errorCode":0}
 ```
-- 古茗refer参数（生成一致，过不了请求不知道为啥）
-    url = "https://h5api.gumingnc.com/newton-buyer/newton/buyer/ump/alloc/quiz/activity/fcfs"
-
-    params = {
-    'refer__1738': "n40xgD2DRDc00=GOD9DBqDTPZDnGiCKCHNTTr84D"
-    }
-
-    payload = {
-    "channelCode": 20,
-    "brandId": 1,
-    "activityCode": "e7290ccc12071337efae28054c1dd534b1d5ec97cec6717c04af23f4e67e2502",
-    "sectionId": "1896494340028239874",
-    "keyword": "做",
-    "consumptionInventoryId": 7624537,
-    "appletVersion": "6.0.14"
-    }
-  生成refer的参数https://h5api.gumingnc.com/newton-buyer/newton/buyer/ump/alloc/quiz/activity/fcfs{"channelCode":20,"brandId":1,"activityCode":"e7290ccc12071337efae28054c1dd534b1d5ec97cec6717c04af23f4e67e2502","sectionId":"1896494340028239874","keyword":"做","consumptionInventoryId":7624537,"appletVersion":"6.0.14"}
+- 古茗refer参数（
+encoded_params = urllib.parse.urlencode(params)需要对生成的refer进行编码
+  
 
 
