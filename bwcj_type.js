@@ -2159,10 +2159,11 @@ if (d[c(t.j)](Ct, Y[c(t.f)], G)) {
 // console.log((a = Jt(Y)));
 function type(url,data){
   Y = {
-    url: url,
-    // method: "POST",
-    data: data
-    };
+    "url": url,
+    "method": "POST",
+    "data": data
+  
+  };
 
 
 
