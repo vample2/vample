@@ -210,13 +210,6 @@ def generate_payload(uerId, key, iv, version):
 
 
 if __name__ == '__main__':
-    # 单账号
-    range_n = 50  # 抢购次数
-    time_sleep = 0.15
-    payload_list = []
-
-    #   在这里填写token和手机号
-    # 获取抢购时间（下一个整点）
     updated_time = get_updated_time(minute=59, second=58, microsecond=900)
     start_time = datetime_to_timestamp(updated_time)
     printf('抢券准备...')
@@ -232,21 +225,5 @@ if __name__ == '__main__':
     iv = ""
     version = 
 
-    for _ in range(range_n):
-        payload = generate_payload(uerId, key, iv, version)
-        payload_list.append(payload)
-    threads = []
-    # 单账号，抢购次数
-    for index in range(range_n):
 
-        threads.append(threading.Thread(target=qiang, args=(payload_list[index],)))
-    # print(time.time()-time1)
-    while True:
-        if getNowTime() >= start_time:
-            for task in threads:
-                task.start()
-                time.sleep(time_sleep)
-            for task in threads:
-                task.join()
-            break
 
