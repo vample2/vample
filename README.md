@@ -24,5 +24,6 @@
 ```
 - 古茗refer参数（
 encoded_params = urllib.parse.urlencode(params)
+- 霸王茶几（key可以使用cheat engine 搜索\"encrypt_key\":获得）
 
 
