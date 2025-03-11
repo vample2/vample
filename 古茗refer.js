@@ -2310,6 +2310,11 @@ function JF(JU, Js) {
                 return JU;
             }
 function genere_refer(Jp) {
+    Jp = Object.fromEntries(
+        Object.entries(Jp).map(([k, v]) => [k, typeof v === "string" ? v.trim() : v])
+    );
+    Jp = JSON.stringify(Jp);
+    // return Jp
     var Jd={
     "protocol": "https:",
     "host": "h5api.gumingnc.com",
@@ -2329,5 +2334,5 @@ function genere_refer(Jp) {
                 }
 
 
-var JP='{"channelCode":20,"brandId":1,"activityCode":"e7290ccc12071337efae28054c1dd534b1d5ec97cec6717c04af23f4e67e2502","sectionId":"1899307079998517250","keyword":"二二","consumptionInventoryId":7723393,"appletVersion":"6.0.13"}'
+var JP={"channelCode":20,"brandId":1,"activityCode":"e7290ccc12071337efae28054c1dd534b1d5ec97cec6717c04af23f4e67e2502","sectionId":"1899307079998517250","keyword":"二二","consumptionInventoryId":7723393,"appletVersion":"6.0.13"}
 console.log(genere_refer(JP))
