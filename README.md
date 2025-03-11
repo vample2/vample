@@ -26,5 +26,6 @@
 - ![image](https://github.com/user-attachments/assets/c5724501-c58d-40b3-a87f-00d27c205c4a)
 
 - 霸王茶几（key可以使用cheat engine 搜索\"encrypt_key\":获得）
+- 某手创作者平台sig3（webpack，需要先扣其加载器，这里直接将整个文件夹全部复制）
 
 
