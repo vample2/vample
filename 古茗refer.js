@@ -2309,16 +2309,8 @@ function JF(JU, Js) {
                 }
                 return JU;
             }
-function genere_refer(Jd, Jp) {
-    Ju=JU['E'](Jd, Jp)
-    JP = J['iocfN'](J['qNVGS'](J['UmGrD'](J['kruPP'](J['qNVGS'](JU['sig'](Ju), '|'), J['xjfXU'](J9)), '|'), new Date()['getTime']()), '|1')
-    refer = Jf['ua'](JP, true)
-    // console.log(JU['sig'](Ju))
-    // console.log(JP)
-    return refer;
-                }
-
-var Jd={
+function genere_refer(Jp) {
+    var Jd={
     "protocol": "https:",
     "host": "h5api.gumingnc.com",
     "hostname": "h5api.gumingnc.com",
@@ -2328,5 +2320,14 @@ var Jd={
     "hash": "",
     "D": "https://h5api.gumingnc.com/newton-buyer/newton/buyer/ump/alloc/quiz/activity/fcfs"
 }
+    Ju=JU['E'](Jd, Jp)
+    JP = J['iocfN'](J['qNVGS'](J['UmGrD'](J['kruPP'](J['qNVGS'](JU['sig'](Ju), '|'), J['xjfXU'](J9)), '|'), new Date()['getTime']()), '|1')
+    refer = Jf['ua'](JP, true)
+    // console.log(JU['sig'](Ju))
+    // console.log(JP)
+    return refer;
+                }
+
+
 var JP='{"channelCode":20,"brandId":1,"activityCode":"e7290ccc12071337efae28054c1dd534b1d5ec97cec6717c04af23f4e67e2502","sectionId":"1899307079998517250","keyword":"二二","consumptionInventoryId":7723393,"appletVersion":"6.0.13"}'
-console.log(genere_refer(Jd, JP))
+console.log(genere_refer(JP))
