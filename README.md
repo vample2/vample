@@ -27,5 +27,7 @@
 
 - 霸王茶几（key可以使用cheat engine 搜索\"encrypt_key\":获得）
 - 某手创作者平台sig3（webpack，需要先扣其加载器，这里直接将整个文件夹全部复制）
+- 使用Nonebot2和qq官方机器人，实现自动提取京东优惠券直连
+- 使用Nonebot2和qq官方机器人，实现天气预报查询
 
 
