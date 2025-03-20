@@ -13,12 +13,12 @@ import qrcode
 from pathlib import Path
 from nonebot.matcher import Matcher
 import validators
+
 JDcoupon = on_command("优惠券提取", rule=to_me(), aliases={"京东优惠券", "优惠券链接"}, priority=10)
 
 
 @JDcoupon.handle()
 async def handle_function(matcher: Matcher, args: Message = CommandArg()):
-    # 提取参数纯文本作为地名，并判断是否有效
     if args.extract_plain_text():
         matcher.set_arg("url", args)
 
@@ -30,7 +30,7 @@ async def got_location(url: str = ArgPlainText()):
     if not validators.url(url):
         await JDcoupon.reject("❌ 请输入一个有效的网址")
 
-    async with AsyncClient() as session:
+    async with AsyncClient(follow_redirects=True) as session:
         headers = {
             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
             'accept-language': 'en,zh-CN;q=0.9,zh;q=0.8',
@@ -54,33 +54,38 @@ async def got_location(url: str = ArgPlainText()):
                 for index,couponlist_data in enumerate(data["activityData"]["floorList"]):
                     # couponList = couponlist_data["couponList"]
                     if 'couponList' in couponlist_data:
-                        coupon_list = couponlist_data['couponList'][0]
-                        if "flexibleData" in coupon_list:
-                            args = coupon_list["args"]
-                            flexibleData = coupon_list["flexibleData"]
-                            scope = flexibleData['scope']
-                            limit = flexibleData['limit']
-                            discount = flexibleData["discount"]
-                            body = json.dumps({"activityId": "3H885vA4sQj6ctYzzPVix4iiYN2P",
-                                               "scene": "1",
-                                               "args": args,
-                                               "log": "1,1"
-                                               }
-                                              )
-                            encoded_data = urllib.parse.quote(body)
-                            link = f"https://api.m.jd.com/client.action?functionId=newBabelAwardCollection&client=wh5&body={encoded_data}"
-                            qr = qrcode.make(link)
+                        for coupon_list in couponlist_data['couponList']:
+                            # coupon_list = couponlist_data['couponList'][0]
+                            # print(coupon_list)
 
-                            # 本地保存二维码图片
-                            qr_path = f"qr_code{index}.png"
-                            qr.save(qr_path)
-                            message = Message([
-                                f"📍 范围：{scope}",
-                                f"💰 门槛：{limit}",
-                                f"🔻 折扣：{discount}",
-                                MessageSegment.file_image(Path(qr_path)),
-                            ])
-                            await JDcoupon.send(message)
+                            if "flexibleData" in coupon_list:
+                                args = coupon_list["args"]
+                                flexibleData = coupon_list["flexibleData"]
+                                scope = flexibleData['scope']
+                                limit = flexibleData['limit']
+                                discount = flexibleData["discount"]
+                                body = json.dumps({"activityId": "3H885vA4sQj6ctYzzPVix4iiYN2P",
+                                                   "scene": "1",
+                                                   "args": args,
+                                                   "log": "1,1"
+                                                   # "log": log_list[i]['log'],
+                                                   # "random": log_list[i]['random']
+                                                   }
+                                                  )
+                                encoded_data = urllib.parse.quote(body)
+                                link = f"https://api.m.jd.com/client.action?functionId=newBabelAwardCollection&client=wh5&body={encoded_data}"
+                                qr = qrcode.make(link)
+
+                                # 本地保存二维码图片
+                                qr_path = f"qr_code{index}.png"
+                                qr.save(qr_path)
+                                message = Message([
+                                    f"📍 范围：{scope}",
+                                    f"💰 门槛：{limit}",
+                                    f"🔻 折扣：{discount}",
+                                    MessageSegment.file_image(Path(qr_path)),
+                                ])
+                                await JDcoupon.send(message)
 
         await JDcoupon.finish("已发送完成")
 
