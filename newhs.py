@@ -37,7 +37,7 @@ def generate_x(timestamp, uerId):
 def generate_signature(activityId, userId, signature_timestamp):
     Mt_key = '8FgH3kJ1NpP5rQ9sTuV7WxY2ZbL4'
     St = {
-        "appId": "wxd92a2d29f8022f40",
+        "appId": "",
         "activityId": activityId,
         "sellerId": "201424",
         "timestamp": signature_timestamp,
@@ -69,6 +69,7 @@ def generate_data(payload, encryptKey, iv):
 
 
 if __name__ == '__main__':
+    ## appid自己添加
     timestamp = "1745035922049"
     userId = ""
     activityId = "1120071264150298625"
@@ -81,7 +82,7 @@ if __name__ == '__main__':
         "keyWords": keyWords,
         "qzGtd": "",
         "gdtVid": "",
-        "appid": "wxd92a2d29f8022f40",
+        "appid": "",
         "timestamp": timestamp,
         "signature": signature,
         "x": x,
