@@ -70,7 +70,7 @@ def generate_data(payload, encryptKey, iv):
 
 if __name__ == '__main__':
     ## appid自己添加
-    timestamp = "1745035922049"
+    timestamp = str(int(time.time() * 1000))
     userId = ""
     activityId = "1120071264150298625"
     keyWords = "护嗓"
@@ -94,3 +94,5 @@ if __name__ == '__main__':
     version = 
     data=generate_data(payload, encryptKey, iv)
     print(data)
+    payload['data'] = data
+    payload['version']=version
