@@ -32,4 +32,6 @@
 - （tbpro.py）使用Nonebot2和qq官方机器人，实现淘宝商品直链（使用了浮动时间的接口，参数sign，使用时添写自己的token）
 - (newhs.py)上海少妇口令更新
 
-
+破解XX视屏
+MT搜getAd_source_id，返回值const/4 v0,0x0----------去广告
+getIs_vip，返回值 const/4 v0, 0x1-----VIP
